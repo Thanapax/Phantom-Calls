@@ -4694,6 +4694,7 @@ MonoBehaviour:
   - {fileID: 72833624}
   - {fileID: 1378858728}
   continueButton: {fileID: 388877682}
+  backButton: {fileID: 0}
   inkJSON:
   - {fileID: 4900000, guid: 9da76ca996a0157409c09fd4a29df8c9, type: 3}
   - {fileID: 4900000, guid: 11a895a6a1b5da143afe032079e97a56, type: 3}
@@ -4701,6 +4702,8 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 06dc2f3ba4fbf6d46afdefac3650eaad, type: 3}
   - {fileID: 4900000, guid: 7b20a7fbae6613b4ba2032162d5e3fc1, type: 3}
   typingSpeed: 0.03
+  enableBack: 1
+  maxHistory: 200
   customPanels:
   - name: Chat_PEAThailand
     panel: {fileID: 1212935978}
