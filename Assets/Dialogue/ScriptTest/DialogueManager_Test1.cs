@@ -61,6 +61,8 @@ public class DialogueManager_Test1 : MonoBehaviour
 
     private static DialogueManager_Test1 instance;
 
+    public string CurrentStoryBaseName { get; private set; }
+
     private void Awake()
     {
         if (instance != null)
@@ -134,6 +136,8 @@ public class DialogueManager_Test1 : MonoBehaviour
         stateHistory.Clear();
         isRestoringFromHistory = false;
 
+        CurrentStoryBaseName = inkJSON.name;
+
         ContinueStory();
     }
 
@@ -206,7 +210,7 @@ public class DialogueManager_Test1 : MonoBehaviour
         {
             HandleTag(tag);
             if (SoundManager_Test1.instance != null)
-                SoundManager_Test1.instance.HandleSoundTag(tag);
+                SoundManager_Test1.instance.HandleSoundTag(tag, CurrentStoryBaseName);
         }
 
         // เตรียมข้อความสำหรับ typing + back
@@ -464,7 +468,7 @@ public class DialogueManager_Test1 : MonoBehaviour
         // 5) แท็กอื่น ๆ → ให้ SoundManager ลองจัดการ
         if (SoundManager_Test1.instance != null)
         {
-            SoundManager_Test1.instance.HandleSoundTag(tag);
+            SoundManager_Test1.instance.HandleSoundTag(tag, CurrentStoryBaseName);
         }
 
         Debug.Log("Unhandled tag: " + tag);
@@ -613,6 +617,8 @@ public class DialogueManager_Test1 : MonoBehaviour
         stateHistory.Clear();
         isRestoringFromHistory = false;
         UpdateBackButtonVisibility();
+
+        CurrentStoryBaseName = inkName;
 
         if (!string.IsNullOrEmpty(knotName))
         {
