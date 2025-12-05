@@ -4789,7 +4789,7 @@ MonoBehaviour:
   - {fileID: 72833624}
   - {fileID: 1378858728}
   continueButton: {fileID: 388877682}
-  backButton: {fileID: 0}
+  backButton: {fileID: 1027529177}
   inkJSON:
   - {fileID: 4900000, guid: 9da76ca996a0157409c09fd4a29df8c9, type: 3}
   - {fileID: 4900000, guid: 11a895a6a1b5da143afe032079e97a56, type: 3}
@@ -12807,8 +12807,8 @@ MonoBehaviour:
         nextStep: 1
         dockOverride: 0
         instantExitAndJump: 0
-        inkNameToLoadOnExit: Story3_Scene 4-2
-        jumpToKnotOnExit: ToBank
+        inkNameToLoadOnExit: 
+        jumpToKnotOnExit: 
       destroyOthersOnPick: 0
     finishAfterNpc: 0
   - name: PEAThailand
