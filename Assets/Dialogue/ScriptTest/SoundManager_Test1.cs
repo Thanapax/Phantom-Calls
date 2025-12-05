@@ -129,31 +129,28 @@ public class SoundManager_Test1 : MonoBehaviour
     }
     public void PlayVoiceClipByName(string fullTagName, string currentStoryName)
     {
-<<<<<<< Updated upstream
         AudioClip clip = null;
         
-        // 1. Try Dictionary
-        if (voDict.TryGetValue(name, out clip))
+        // 1. Try Dictionary (Manual List)
+        if (voDict.TryGetValue(fullTagName, out clip))
         {
             // Found in manual list
         }
         else
         {
-            // 2. Try Advanced Resources Load
+            // 2. Advanced Resources Load
             // Tag format: "Type-ID" e.g. "บรรยาย-0"
-            string[] parts = name.Split('-');
+            string[] parts = fullTagName.Split('-');
             if (parts.Length >= 2)
             {
                 string type = parts[0]; // "บรรยาย"
                 string id = parts[1];   // "0"
                 
-                string currentStory = "Story1"; // Default fallback
-                if (DialogueManager_Test1.GetInstance() != null && !string.IsNullOrEmpty(DialogueManager_Test1.GetInstance().CurrentStoryName))
-                {
-                    currentStory = DialogueManager_Test1.GetInstance().CurrentStoryName;
-                }
+                // Use passed currentStoryName (e.g. "Story1")
+                string storyFolder = currentStoryName;
+                if (string.IsNullOrEmpty(storyFolder)) storyFolder = "Story1";
 
-                // Map Type to Folder Name
+                // Map Type to Folder Name (Thai Structure)
                 string folderType = "";
                 if (type == "บรรยาย") folderType = "เสียงบรรยาย";
                 else if (type == "พากย์") folderType = "เสียงพากย์";
@@ -162,9 +159,10 @@ public class SoundManager_Test1 : MonoBehaviour
                 if (!string.IsNullOrEmpty(folderType))
                 {
                     // Path: sounds/Story1/เสียงบรรยาย story1/
-                    string path = $"sounds/{currentStory}/{folderType} {currentStory}/";
+                    string storySuffix = storyFolder.ToLower();
+                    string path = $"sounds/{storyFolder}/{folderType} {storySuffix}/";
                     
-                    // Load all clips in folder
+                    // Load all clips in folder to find matching ID prefix
                     AudioClip[] allClips = Resources.LoadAll<AudioClip>(path);
                     
                     // Find clip starting with "ID-"
@@ -184,79 +182,13 @@ public class SoundManager_Test1 : MonoBehaviour
                 }
             }
             
-            // 3. Fallback to simple path if complex logic failed
+            // 3. Fallback to simple path
             if (clip == null)
             {
-                 clip = Resources.Load<AudioClip>("Sounds/VO/" + name);
+                 clip = Resources.Load<AudioClip>("Sounds/VO/" + fullTagName);
             }
         }
 
-=======
-        // 1. ดึงชื่อ Story Base Name (เช่น "Story2" -> "story2")
-        string storyFolderName = currentStoryName;
-        if (currentStoryName.StartsWith("Story"))
-        {
-            int idx = currentStoryName.IndexOf('_');
-            if (idx > 0)
-                storyFolderName = currentStoryName.Substring(0, idx);
-        }
-
-        // บังคับให้เป็นตัวพิมพ์เล็กตามมาตรฐานที่แนะนำ
-        string storyBaseNameLower = storyFolderName.ToLower();
-
-        // 2. กำหนด Path Variables
-        string baseFolder = $"sounds/{storyBaseNameLower}/"; // เช่น sounds/story2/
-        string assetTypeFolder = "";
-        string searchFileName = "";
-
-        // 3. ดึงหมายเลขไฟล์และรวมขีดกลาง (เช่น "0-" จาก "บรรยาย-0")
-        string fileNumber = "";
-        string[] parts = fullTagName.Split('-');
-        if (parts.Length > 1)
-        {
-            // ✅ FIX: ดึงเฉพาะตัวเลขมาใช้ในการค้นหา (ไม่เอาขีดกลางมาต่อท้าย)
-            fileNumber = parts[1].Trim();
-        }
-        else
-        {
-            fileNumber = fullTagName.Trim();
-        }
-
-        // 4. กำหนด Folder (ใช้ชื่อโฟลเดอร์ใหม่ที่ไม่มีช่องว่าง)
-        if (fullTagName.StartsWith("บรรยาย-"))
-        {
-            assetTypeFolder = "narration";
-        }
-        else if (fullTagName.StartsWith("พากย์-"))
-        {
-            assetTypeFolder = "dialogue";
-        }
-        else if (fullTagName.StartsWith("จบ1-"))
-        {
-            assetTypeFolder = "ending1";
-        }
-        else if (fullTagName.StartsWith("จบ2-"))
-        {
-            assetTypeFolder = "ending2";
-        }
-        else if (fullTagName.StartsWith("จบ3-"))
-        {
-            assetTypeFolder = "ending3";
-        }
-        else
-        {
-            Debug.LogWarning($"❌ Tag VOICE ไม่ถูกต้อง: {fullTagName}");
-            return;
-        }
-
-        // 5. สร้าง Search Path: (Path ใหม่ที่ถูกต้องและไม่ซ้ำซ้อน)
-        // Path ตัวอย่าง: sounds/story2/narration/0- 
-        string searchPath = baseFolder + assetTypeFolder + "/" + fileNumber;
-
-        // 6. โหลดไฟล์เสียง
-        AudioClip clip = Resources.Load<AudioClip>(searchPath);
-
->>>>>>> Stashed changes
         if (clip != null)
         {
             if (voPlayer.isPlaying)
@@ -265,11 +197,11 @@ public class SoundManager_Test1 : MonoBehaviour
             }
             voPlayer.clip = clip;
             voPlayer.Play();
-            Debug.Log($"✅ เล่นเสียงพากย์: {searchPath}");
+            Debug.Log($"✅ เล่นเสียงพากย์: {clip.name}");
         }
         else
         {
-            Debug.LogWarning($"❌ ไม่พบ Voice Clip: {fullTagName}. Search Path ที่ค้นหา: {searchPath}");
+            Debug.LogWarning($"❌ ไม่พบ Voice Clip: {fullTagName}");
         }
     }
     public void RegisterExternalAudio(AudioSource source, SoundType type)

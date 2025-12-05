@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using System.Text.RegularExpressions;
 
 public class DialogueManager_Test1 : MonoBehaviour
 {
@@ -144,9 +145,21 @@ public class DialogueManager_Test1 : MonoBehaviour
     private string ParseStoryName(string fileName)
     {
         if (string.IsNullOrEmpty(fileName)) return "";
+
+        // Try Regex first: Matches "Story1", "Story2" at the start
+        var match = Regex.Match(fileName, @"^(Story\d+)", RegexOptions.IgnoreCase);
+        if (match.Success)
+        {
+            string result = match.Groups[1].Value;
+            // Ensure first letter is uppercase (Story1)
+            return char.ToUpper(result[0]) + result.Substring(1);
+        }
+        
+        // Fallback
         string[] parts = fileName.Split('_');
-        if (parts.Length > 0) return parts[0];
-        return fileName;
+        string splitResult = parts.Length > 0 ? parts[0] : fileName;
+        Debug.Log($"ParseStoryName: Input='{fileName}' -> Output='{splitResult}'");
+        return splitResult;
     }
 
     private void ExitDialogueMode()
@@ -210,7 +223,7 @@ public class DialogueManager_Test1 : MonoBehaviour
         {
             HandleTag(tag);
             if (SoundManager_Test1.instance != null)
-                SoundManager_Test1.instance.HandleSoundTag(tag, CurrentStoryBaseName);
+                SoundManager_Test1.instance.HandleSoundTag(tag, CurrentStoryName);
         }
 
         // เตรียมข้อความสำหรับ typing + back
@@ -465,11 +478,11 @@ public class DialogueManager_Test1 : MonoBehaviour
             return;
         }
 
-        // 5) แท็กอื่น ๆ → ให้ SoundManager ลองจัดการ
-        if (SoundManager_Test1.instance != null)
-        {
-            SoundManager_Test1.instance.HandleSoundTag(tag, CurrentStoryBaseName);
-        }
+        // 5) แท็กอื่น ๆ → ให้ SoundManager ลองจัดการ (REMOVED: ShowNextLine handles this globally)
+        // if (SoundManager_Test1.instance != null)
+        // {
+        //     SoundManager_Test1.instance.HandleSoundTag(tag, CurrentStoryBaseName);
+        // }
 
         Debug.Log("Unhandled tag: " + tag);
     }
