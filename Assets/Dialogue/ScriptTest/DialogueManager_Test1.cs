@@ -115,11 +115,18 @@ public class DialogueManager_Test1 : MonoBehaviour
         // ตอนนี้การกดต่อใช้ปุ่ม/ระบบอื่น
     }
 
+    public string CurrentStoryName { get; private set; }
+
     // ========== ENTER / EXIT DIALOGUE ==========
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
+        
+        // Parse Story Name (e.g. "Story1_Scene 1-1" -> "Story1")
+        CurrentStoryName = ParseStoryName(inkJSON.name);
+        Debug.Log("Current Story: " + CurrentStoryName);
+
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
         Debug.Log("dialoguePanel.SetActive(true)");
@@ -128,6 +135,14 @@ public class DialogueManager_Test1 : MonoBehaviour
         isRestoringFromHistory = false;
 
         ContinueStory();
+    }
+
+    private string ParseStoryName(string fileName)
+    {
+        if (string.IsNullOrEmpty(fileName)) return "";
+        string[] parts = fileName.Split('_');
+        if (parts.Length > 0) return parts[0];
+        return fileName;
     }
 
     private void ExitDialogueMode()
@@ -510,6 +525,11 @@ public class DialogueManager_Test1 : MonoBehaviour
             return;
         }
         currentStory = new Story(selectedInk.text);
+        
+        // Update Story Name
+        CurrentStoryName = ParseStoryName(selectedInk.name);
+        Debug.Log("Current Story: " + CurrentStoryName);
+
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
@@ -583,6 +603,11 @@ public class DialogueManager_Test1 : MonoBehaviour
         }
 
         currentStory = new Ink.Runtime.Story(selectedInk.text);
+        
+        // Update Story Name
+        CurrentStoryName = ParseStoryName(selectedInk.name);
+        Debug.Log("Current Story: " + CurrentStoryName);
+
         EnsureOpen();
 
         stateHistory.Clear();

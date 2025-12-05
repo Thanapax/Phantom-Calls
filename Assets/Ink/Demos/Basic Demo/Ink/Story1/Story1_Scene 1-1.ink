@@ -1,6 +1,6 @@
 
 # show_panel:BedRoom
-# play_bgm:morning
+//# play_bgm:morning
 ในวันสบาย ๆ วันหนึ่ง... #VOICE:บรรยาย-0
 
 คุณลืมตาตื่นขึ้นมาในเช้าวันใหม่  #VOICE:บรรยาย-1
@@ -14,7 +14,7 @@
     * [หยิบโทรศัพท์มือถือขึ้นมาเล่น] -> answer2
 == answer1 ==
 # hide_panel:News
-# show_panel:BedRoom
+//# show_panel:BedRoom
 เวลาได้ผ่านไปพักหนึ่ง #VOICE:บรรยาย-7
 
 มีเสียงข้อความแจ้งเตือนดังขึ้นมาจากโทรศัพท์ของคุณ #VOICE:บรรยาย-8
@@ -28,7 +28,7 @@
 - -> END
 
 == answer2 ==
-# hide_panel:Bedroom
+//# hide_panel:Bedroom
 
 คุณเปิดเฟสบุ๊คขึ้นมาและได้พบเจอกับข่าวแก๊ง คอลเซ็นเตอร์ที่ได้ปลอมตัวเป็นเจ้าหน้าที่การไฟฟ้า # show_panel:News #VOICE:บรรยาย-3
 
