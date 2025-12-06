@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1407587847}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -2969,6 +2969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: clickDialogue
   chatPanelToClose: {fileID: 463392772}
   inkNameToLoad: Story2_Scene 4-2
   jumpToKnot: ToTransfer2
@@ -8818,7 +8819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1407587847}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -8842,6 +8843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: click
   chatPanelToClose: {fileID: 683893645}
   inkNameToLoad: Story2_Scene 4-3
   jumpToKnot: callScene4_4
@@ -9249,6 +9251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: clickDialogue
   chatPanelToClose: {fileID: 1799148051}
   inkNameToLoad: Story2_Scene 4-3
   jumpToKnot: Ending1BadEnd
@@ -10166,6 +10169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: clickDialogue
   chatPanelToClose: {fileID: 683893645}
   inkNameToLoad: Story2_Scene 4-3
   jumpToKnot: callScene4_4
@@ -13135,6 +13139,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bebb2da81c9520540bc920c3d3e067c9, type: 3}
   - name: Unlock
     clip: {fileID: 8300000, guid: 2c142ff7fa34821459876b74f59c3899, type: 3}
+  - name: car
+    clip: {fileID: 8300000, guid: 81b48e111c0bc2d4a94544ab73929b7b, type: 3}
+  - name: clickDialogue
+    clip: {fileID: 8300000, guid: bebb2da81c9520540bc920c3d3e067c9, type: 3}
   VoiceOverClips: []
 --- !u!82 &1407587847
 AudioSource:
@@ -17086,6 +17094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatPanel: {fileID: 1817654091}
+  isChatPanelOpen: 4
   spawnTriggers: []
   chatContentRoot: {fileID: 1737158420}
   scrollRect: {fileID: 2053054415}

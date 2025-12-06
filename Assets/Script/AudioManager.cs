@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = menuMusic;
         audioSource.loop = true;
         audioSource.playOnAwake = false;
-        audioSource.volume = 0.5f;
+        audioSource.volume = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
         audioSource.Play();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -65,6 +65,14 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop();
             audioSource.clip = newClip;
             audioSource.Play();
+        }
+    }
+
+    public void SetVolume(float volume)
+    {
+        if (audioSource != null)
+        {
+            audioSource.volume = volume;
         }
     }
 }

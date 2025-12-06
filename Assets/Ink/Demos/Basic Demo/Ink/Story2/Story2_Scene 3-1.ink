@@ -50,7 +50,7 @@
 "ผมกำลังขับรถข้ามสี่แยกเพื่อที่จะเข้าซอยบ้านของตัวเอง" #VOICE:พากย์-3
 
 #speaker:วี บุญยศักดิ์ # show_panel:Accident:fade
-"มันมีรถบรรทุกคันหนึ่งขับมาจากไหนไม่รู้ชนเข้า กับรถของผม" #VOICE:พากย์-4
+"มันมีรถบรรทุกคันหนึ่งขับมาจากไหนไม่รู้ชนเข้า กับรถของผม" #VOICE:พากย์-4 #play_sound:car
 
 -> choices2
 == choices2 ==
@@ -61,7 +61,7 @@
 
 
 == Scene3_3 ==
-# show_panel:PhoneCalling # hide_panel:Accident
+//# show_panel:PhoneCalling # hide_panel:Accident
 
 #speaker:วี บุญยศักดิ์
 "ลูกสาวของผมก็โดนลูกหลงไปด้วย" #VOICE:พากย์-29
@@ -92,6 +92,8 @@
 
 #speaker:วี บุญยศักดิ์
 "ตำรวจก็พยายามช่วยตามหาผู้ก่อเหตุอยู่เพื่อที่จะได้เรียกตัวมาชดใช้ค่าเสียหาย" #VOICE:พากย์-36
+
+# show_panel:PhoneCalling # hide_panel:Accident
 
 //# hide_panel:PhoneCalling
 # load_ink:Story2_Scene 4-1

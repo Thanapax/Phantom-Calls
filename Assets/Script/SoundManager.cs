@@ -66,6 +66,11 @@ public class SoundManager : MonoBehaviour
 
     public void OnBGMVolumeChanged(float value)
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetVolume(value);
+        }
+
         if (SoundManager_Test1.instance != null)
             SoundManager_Test1.instance.SetVolume(SoundManager_Test1.SoundType.BGM, value);
         PlayerPrefs.SetFloat("BGMVolume", value);

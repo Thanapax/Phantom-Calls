@@ -2985,7 +2985,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2146648675}
   m_Father: {fileID: 766794253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -7327,7 +7328,6 @@ RectTransform:
   - {fileID: 611949347}
   - {fileID: 490282714}
   - {fileID: 1659866936}
-  - {fileID: 2146648675}
   m_Father: {fileID: 322607077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9771,6 +9771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: ui_click
   chatPanelToClose: {fileID: 496165824}
   inkNameToLoad: Story3_Scene 4-2
   jumpToKnot: ToBank
@@ -12750,6 +12751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatPanel: {fileID: 1212935978}
+  isChatPanelOpen: 1
   spawnTriggers: []
   chatContentRoot: {fileID: 666117535}
   scrollRect: {fileID: 477911685}
@@ -13662,6 +13664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: clickDialogue
   chatPanelToClose: {fileID: 1292287121}
   inkNameToLoad: Story3_Scene 4-1
   jumpToKnot: Ending1BadEnd
@@ -15272,6 +15275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: clickDialogue
   chatPanelToClose: {fileID: 1701042283}
   inkNameToLoad: Story3_Scene 4-1
   jumpToKnot: PreEnding3AlternativeEnd
@@ -16850,6 +16854,8 @@ GameObject:
   - component: {fileID: 1304289294}
   - component: {fileID: 1304289293}
   - component: {fileID: 1304289292}
+  - component: {fileID: 1304289295}
+  - component: {fileID: 1304289296}
   m_Layer: 5
   m_Name: BG_PEA
   m_TagString: Untagged
@@ -16914,6 +16920,116 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &1304289295
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304289291}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 08e1b55aab2db5e439d84d5221bee59f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 08e1b55aab2db5e439d84d5221bee59f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1304289296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304289291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278a8350e7a1f39489b87b6a4769bff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 0
 --- !u!1 &1311821409
 GameObject:
   m_ObjectHideFlags: 0
@@ -17178,6 +17294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: clickDialogue
   chatPanelToClose: {fileID: 1311821409}
   inkNameToLoad: Story3_Scene 4-2
   jumpToKnot: ToTransfer2
@@ -18679,6 +18796,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c7d33d80e0baeaa46b50e410c790be91, type: 3}
   - name: RemoteControl
     clip: {fileID: 8300000, guid: 572d1fbfce3db684d9694c7b9bd859d8, type: 3}
+  - name: piano
+    clip: {fileID: 8300000, guid: 08e1b55aab2db5e439d84d5221bee59f, type: 3}
   sfxClips:
   - name: click
     clip: {fileID: 8300000, guid: 6e32b71bf46ec434f95fef4089bde3b0, type: 3}
@@ -18690,6 +18809,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bebb2da81c9520540bc920c3d3e067c9, type: 3}
   - name: Unlock
     clip: {fileID: 8300000, guid: 2c142ff7fa34821459876b74f59c3899, type: 3}
+  - name: clickDialogue
+    clip: {fileID: 8300000, guid: bebb2da81c9520540bc920c3d3e067c9, type: 3}
   VoiceOverClips: []
 --- !u!82 &1407587847
 AudioSource:
@@ -19109,6 +19230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fa2f9b0b30f14e833319622afd553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSoundName: clickDialogue
   chatPanelToClose: {fileID: 1701042283}
   inkNameToLoad: Story3_Scene 4-1
   jumpToKnot: PreEnding3AlternativeEnd
@@ -25167,6 +25289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatPanel: {fileID: 496165824}
+  isChatPanelOpen: 2
   spawnTriggers: []
   chatContentRoot: {fileID: 2146648675}
   scrollRect: {fileID: 109364287}
@@ -26774,7 +26897,7 @@ RectTransform:
   m_GameObject: {fileID: 2146648674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.3012203, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1064653871}
@@ -26791,11 +26914,11 @@ RectTransform:
   - {fileID: 1704523519}
   - {fileID: 2088662621}
   - {fileID: 105990841}
-  m_Father: {fileID: 496165825}
+  m_Father: {fileID: 183190789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 412, y: -1441.9161}
+  m_AnchoredPosition: {x: 404, y: -1746}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
