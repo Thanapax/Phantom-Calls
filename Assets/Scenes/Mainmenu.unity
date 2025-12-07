@@ -1747,8 +1747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E43\u0E19\u0E42\u0E25\u0E01\u0E17\u0E35\u0E48\u0E40\u0E2A\u0E35\u0E22\u0E07\u0E1B\u0E25\u0E32\u0E22\u0E2A\u0E32\u0E22\u0E44\u0E21\u0E48\u0E43\u0E0A\u0E48\u0E40\u0E1E\u0E35\u0E22\u0E07\u0E16\u0E49\u0E2D\u0E22\u0E04\u0E33\u0E18\u0E23\u0E23\u0E21\u0E14\u0E32\n\n\u0E17\u0E27\u0E48\u0E32\u0E41\u0E1D\u0E07\u0E44\u0E1B\u0E14\u0E49\u0E27\u0E22\u0E01\u0E31\u0E1A\u0E14\u0E31\u0E01\u0E2D\u0E31\u0E19\u0E41\u0E22\u0E1A\u0E22\u0E25\n\n\u0E04\u0E38\u0E13\u0E08\u0E30\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E40\u0E2A\u0E35\u0E22\u0E07\u0E19\u0E31\u0E49\u0E19
-    \u0E2B\u0E23\u0E37\u0E2D\u0E08\u0E30\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E31\u0E48\u0E19\u0E15\u0E31\u0E27\u0E40\u0E2D\u0E07?"
+  m_text: "\u0E43\u0E19\u0E42\u0E25\u0E01\u0E17\u0E35\u0E48\u0E40\u0E2A\u0E35\u0E22\u0E07\u0E1B\u0E25\u0E32\u0E22\u0E2A\u0E32\u0E22\u0E44\u0E21\u0E48\u0E43\u0E0A\u0E48\u0E40\u0E1E\u0E35\u0E22\u0E07\u0E16\u0E49\u0E2D\u0E22\u0E04\u0E33\u0E18\u0E23\u0E23\u0E21\u0E14\u0E32\n\n\u0E17\u0E27\u0E48\u0E32\u0E41\u0E1D\u0E07\u0E44\u0E1B\u0E14\u0E49\u0E27\u0E22\u0E01\u0E31\u0E1A\u0E14\u0E31\u0E01\u0E2D\u0E31\u0E19\u0E41\u0E22\u0E1A\u0E22\u0E25\n\n\u0E04\u0E38\u0E13\u0E08\u0E30\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E40\u0E2A\u0E35\u0E22\u0E07\u0E19\u0E31\u0E49\u0E19\u0E2B\u0E23\u0E37\u0E2D\u0E08\u0E30\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E31\u0E48\u0E19\u0E15\u0E31\u0E27\u0E40\u0E2D\u0E07?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37ac1d2cc1a1765499b0ca8717bcdaee, type: 2}
   m_sharedMaterial: {fileID: 3860213594383427902, guid: 37ac1d2cc1a1765499b0ca8717bcdaee, type: 2}
@@ -2673,18 +2672,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Click
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 833042196}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 6e32b71bf46ec434f95fef4089bde3b0, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1045159003
@@ -3959,7 +3946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1731515872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3967,7 +3954,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731515871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 083fb19af42f08442a262795f23145bd, type: 3}
   m_Name: 
@@ -4308,6 +4295,8 @@ GameObject:
   - component: {fileID: 2096247305}
   - component: {fileID: 2096247307}
   - component: {fileID: 2096247306}
+  - component: {fileID: 2096247309}
+  - component: {fileID: 2096247308}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -4372,6 +4361,116 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096247304}
   m_CullTransparentMesh: 1
+--- !u!114 &2096247308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096247304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278a8350e7a1f39489b87b6a4769bff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 0
+--- !u!82 &2096247309
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096247304}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 43bcc3d7e0b8baa4f89e0c9ccbc8acf1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 43bcc3d7e0b8baa4f89e0c9ccbc8acf1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.18
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2132081977
 GameObject:
   m_ObjectHideFlags: 0

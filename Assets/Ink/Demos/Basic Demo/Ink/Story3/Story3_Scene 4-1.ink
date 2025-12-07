@@ -1,16 +1,19 @@
 
 # show_panel:OnLock_Scam:fade
 เวลาผ่านไปได้ไม่นาน ก็มีแจ้งเตือนขึ้นมาจาก PEA Official #VOICE:บรรยาย-15
-
+# hide_panel:PhoneLock1
 
 -> Line
 == Line == 
 # play_sound:Unlock
+# show_panel:PhoneLock2
 # show_panel:Chat_PEAOfficial
-# hide_panel:PhoneLock
+
+# hide_panel:PhoneLock2
 # hide_panel:OnLock_Scam
-แชท
-# hide_panel:Chat_PEAOfficial
+
+//แชท
+//# hide_panel:Chat_PEAOfficial
 
 -> Scene4_3
 == Scene4_3 == 
@@ -102,7 +105,7 @@
 
 ค่าไฟที่บ้านของเขาก็เพิ่มขึ้นเช่นกัน #VOICE:จบ3-7
 
-และแล้ว หัวข้อนี้ในการสนทนาก็เป็นเพียงเรื่องราวตลก ขบขันที่แฝงไปด้วยสามัญสำนึกทั่วไปที่คุณอาจจะลืมคิดถึงไปหรือเปล่านะ? #VOICE:จบ3-8
+คุณตัดสินใจเอาเรื่องราวที่เจอไปลองปรึกษาเพื่อน และแล้ว หัวข้อนี้ในการสนทนาก็เป็นเพียงเรื่อง ราวตลกขบขันที่แฝงไปด้วยสามัญสำนึกทั่วไปที่ คุณอาจจะลืมคิดถึงไปหรือเปล่านะ? #VOICE:จบ3-8
 # hide_panel:LivingRoom
 # show_panel:Ending3
 -> END

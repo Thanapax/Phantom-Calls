@@ -253,7 +253,8 @@ public class DialogueManager_Test1 : MonoBehaviour
             }
 
             isTyping = false;
-            dialogueText.text = currentLineRaw;
+            // dialogueText.text = currentLineRaw; // Text is already set in TypeText
+            dialogueText.maxVisibleCharacters = int.MaxValue; // Show all
 
             // แสดง choices ตามปกติของบรรทัดนี้
             DisplayChoices();
@@ -269,12 +270,30 @@ public class DialogueManager_Test1 : MonoBehaviour
             return;
         }
 
-        // 3) โหลด state ก่อนหน้าจาก history แล้วแสดงบรรทัดนั้นใหม่
-        string json = stateHistory[stateHistory.Count - 1];
-        stateHistory.RemoveAt(stateHistory.Count - 1);
+        // 3) Calculate logic to go back
+        string json = "";
+
+        if (stateHistory.Count > 1)
+        {
+            // If we have more than 1 history, it means we advanced at least once.
+            // The last entry is the state *before* the current line.
+            // But we want to go to the *previous* line.
+            // So we discard the last entry (current state) and load the one before it.
+            stateHistory.RemoveAt(stateHistory.Count - 1);
+            json = stateHistory[stateHistory.Count - 1]; 
+            Debug.Log($"[Back] Removing last state. New Count: {stateHistory.Count}. Loading index: {stateHistory.Count - 1}");
+        }
+        else // Count == 1
+        {
+            // If only 1 history (the start state), we just replay it.
+            // Do not remove it.
+            json = stateHistory[0];
+            Debug.Log("[Back] Replaying start state (Count=1).");
+        }
 
         try
         {
+            Debug.Log($"[Back] Loading JSON snapshot...");
             isRestoringFromHistory = true;
             currentStory.state.LoadJson(json);
             // ตอนนี้ currentStory อยู่ในสถานะ "ก่อนบรรทัดปัจจุบันหนึ่งก้าว"
@@ -302,6 +321,7 @@ public class DialogueManager_Test1 : MonoBehaviour
 
         string json = currentStory.state.ToJson();
         stateHistory.Add(json);
+        Debug.Log($"[SaveSnapshot] Saved state. History Count: {stateHistory.Count}");
 
         // จำกัดขนาด history กันเมมบวม
         if (stateHistory.Count > maxHistory)
@@ -554,19 +574,26 @@ public class DialogueManager_Test1 : MonoBehaviour
         isRestoringFromHistory = false;
         UpdateBackButtonVisibility();
 
+        waitingForChatToFinish = false;
         ContinueStory();
     }
 
     private IEnumerator TypeText(string text)
     {
         isTyping = true;
-        dialogueText.text = "";
+        dialogueText.text = text;
+        dialogueText.maxVisibleCharacters = 0;
 
-        foreach (char letter in text.ToCharArray())
+        // Iterate through length of text (mimics original timing)
+        // Note: text.Length might be larger than visible chars if there are tags, but ensures completion.
+        for (int i = 0; i <= text.Length; i++)
         {
-            dialogueText.text += letter;
+            dialogueText.maxVisibleCharacters = i;
             yield return new WaitForSeconds(typingSpeed);
         }
+        
+        // Ensure fully visible at the end
+        dialogueText.maxVisibleCharacters = int.MaxValue;
 
         isTyping = false;
         DisplayChoices();
@@ -591,6 +618,7 @@ public class DialogueManager_Test1 : MonoBehaviour
     {
         if (currentStory == null || string.IsNullOrEmpty(knotName)) return;
 
+        waitingForChatToFinish = false;
         try
         {
             currentStory.ChoosePathString(knotName);
@@ -632,6 +660,7 @@ public class DialogueManager_Test1 : MonoBehaviour
         UpdateBackButtonVisibility();
 
         CurrentStoryBaseName = inkName;
+        waitingForChatToFinish = false;
 
         if (!string.IsNullOrEmpty(knotName))
         {

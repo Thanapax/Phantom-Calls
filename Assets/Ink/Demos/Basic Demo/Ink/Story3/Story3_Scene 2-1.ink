@@ -1,7 +1,7 @@
 ->Phone
 == Phone ==
 # stop_sound:RemoteControl
-# show_panel:PhoneLock
+# show_panel:PhoneLock0
 # show_panel:OnLock_TH:fade
 
 หน้าจอโทรศัพท์ปรากฏข้อความแจ้งเตือนไลน์จาก การไฟฟ้าส่วนภูมิภาค #VOICE:บรรยาย-11
@@ -14,10 +14,10 @@
 == inPhone ==
 # play_sound:Unlock
 # show_panel:Chat_PEAThailand
-# hide_panel:PhoneLock
+# hide_panel:PhoneLock0
 # hide_panel:OnLock_TH
-แชท
-# hide_panel:Chat_PEAThailand:fade
+//แชท
+//# hide_panel:Chat_PEAThailand:fade
 
 -> Line
 == Line ==  

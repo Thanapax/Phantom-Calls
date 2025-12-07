@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Phantom Call Demo Ver.1
+  m_Name: FinalPhantomCall
   m_EditorClassIdentifier: 
   m_AssetVersion: 1
   m_BuildTarget: 13
   m_Subtarget: 0
   m_PlatformId: b9b35072a6f44c2e863f17467ea3dc13
   m_PlatformBuildProfile:
-    rid: 1076398855000162498
+    rid: 3450696466566742105
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
@@ -105,8 +105,8 @@ MonoBehaviour:
     - line: '|   androidUseSwappy: 1'
     - line: '|   androidBlitType: 2'
     - line: '|   androidResizeableActivity: 1'
-    - line: '|   androidDefaultWindowWidth: 1080'
-    - line: '|   androidDefaultWindowHeight: 1920'
+    - line: '|   androidDefaultWindowWidth: 800'
+    - line: '|   androidDefaultWindowHeight: 1340'
     - line: '|   androidMinimumWindowWidth: 1080'
     - line: '|   androidMinimumWindowHeight: 1920'
     - line: '|   androidFullscreenMode: 1'
@@ -174,9 +174,7 @@ MonoBehaviour:
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
     - line: '|   bundleVersion: 1.0.7'
-    - line: '|   preloadedAssets:'
-    - line: '|   - {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
-        type: 3}'
+    - line: '|   preloadedAssets: []'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
@@ -193,7 +191,7 @@ MonoBehaviour:
     - line: '|   m_ColorGamuts: 00000000'
     - line: '|   targetPixelDensity: 30'
     - line: '|   resolutionScalingMode: 0'
-    - line: '|   resetResolutionOnWindowResize: 1'
+    - line: '|   resetResolutionOnWindowResize: 0'
     - line: '|   androidSupportedAspectRatio: 1'
     - line: '|   androidMaxAspectRatio: 2.4'
     - line: '|   androidMinAspectRatio: 1'
@@ -397,7 +395,10 @@ MonoBehaviour:
     - line: '|       m_Height: 36'
     - line: '|       m_Kind: 0'
     - line: '|       m_SubKind: '
-    - line: '|     - m_Textures: []'
+    - line: '|     - m_Textures:'
+    - line: '|       - {fileID: 2800000, guid: 73214cdd69722864ca70a06fcf17fb0b,
+        type: 3}'
+    - line: '|       - {instanceID: 0}'
     - line: '|       m_Width: 432'
     - line: '|       m_Height: 432'
     - line: '|       m_Kind: 2'
@@ -877,7 +878,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1076398855000162498
+    - rid: 3450696466566742105
       type: {class: AndroidPlatformBuildSettings, ns: UnityEditor.Android, asm: UnityEditor.Android.Extensions}
       data:
         m_Development: 0

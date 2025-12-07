@@ -21,19 +21,23 @@ public class UIButtonSound : MonoBehaviour
 
     void PlaySound()
     {
-        // 1. ถ้ามีคลิปเสียงใส่มาในช่อง clickSound ให้เล่นไฟล์นั้น
+            // 1. ถ้ามีคลิปเสียงใส่มาในช่อง clickSound ให้เล่นไฟล์นั้น
         if (clickSound != null)
         {
-            if (SoundManager_Test1.instance != null)
-            {
-                SoundManager_Test1.instance.GetSFXPlayer().PlayOneShot(clickSound);
-            }
-            else
-            {
-                // Fallback ถ้าไม่มี SoundManager ให้สร้างเสียงเองแต่ยังอิง Volume SFX
-                float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
-                AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position, sfxVolume);
-            }
+            // สร้าง GameObject ชั่วคราวสำหรับเล่นเสียง (แบบข้าม Scene ได้)
+            GameObject soundObj = new GameObject("TempButtonSound");
+            AudioSource source = soundObj.AddComponent<AudioSource>();
+            
+            source.clip = clickSound;
+            float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+            source.volume = sfxVolume;
+            source.Play();
+
+            // สำคัญ! ทำให้ Object นี้ไม่ถูกทำลายเมื่อเปลี่ยน Scene
+            DontDestroyOnLoad(soundObj);
+
+            // สั่งทำลายตัวเองเมื่อเล่นจบ
+            //Destroy(soundObj, clickSound.length);
         }
         // 2. ถ้าไม่มีคลิป แต่มีชื่อ sfxName ให้เรียกผ่าน SoundManager
         else if (!string.IsNullOrEmpty(sfxName) && SoundManager_Test1.instance != null)
